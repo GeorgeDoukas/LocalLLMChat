@@ -1,0 +1,10 @@
+django==5.1.1
+openai-whisper==20230314  # Specific version for Whisper
+ollama==0.3.3
+ffmpeg-python==0.2.0
+SpeechRecognition==3.8.1
+PyAudio # Required for microphone input
+pydub==0.25.1  # For audio conversion
+numpy==1.24.2  # For Whisper to process audio as np.ndarray
+torch==2.0.1  # Ensure you are using the CPU version of torch, adjust version if needed
+pyttsx3==2.98
