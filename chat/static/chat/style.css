@@ -1,0 +1,66 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#chat {
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    overflow-y: scroll;
+    padding: 15px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-message {
+    text-align: left;
+    color: #0056b3; /* Dark blue */
+    margin: 10px 0;
+    background-color: #e7f3fe; /* Light blue background */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.bot-message {
+    text-align: right;
+    color: #155724; /* Dark green */
+    margin: 10px 0;
+    background-color: #d4edda; /* Light green background */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#toggleButton {
+    display: block;
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff; /* Bootstrap primary color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+}
+
+#toggleButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#status {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
