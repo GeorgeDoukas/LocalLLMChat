@@ -9,4 +9,5 @@ urlpatterns = [
     path('toggle_call_session/', views.toggle_call_session, name='toggle_call_session'),
     path('get_chat/', views.get_chat, name='get_chat'),
     path('get_speech_audio/', views.get_speech_audio, name='get_speech_audio'),
+    path('get_greetings_audio/', views.get_greetings_audio, name='get_greetings_audio'),
 ]
