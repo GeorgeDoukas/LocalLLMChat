@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const status = document.getElementById("status");
     let isListening = false;
     let isProcessing = false;
+    let previousProcessingState = false;
     let audioFinished = true;
     let currentSessionId = null;
 
@@ -41,8 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentSessionId = data.call_session_id;
                 status.textContent = data.status; // Update status
 
-                // Then toggle listening
-                toggleListening();
+                if (sessionStarted) {
+                    console.log("Call Session Started.");
+                    playSpeech("/get_greetings_audio/");
+                    console.log("Played greetings audio.");
+                }
+
             })
             .catch(error => console.error('Error:', error));
     });
@@ -58,19 +63,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("----------------------------------");
                 console.log("currentSessionId:", currentSessionId);
                 console.log("isListening:", isListening);
+                console.log("isListeningbackend:", data.is_listening);
                 console.log("isProcessing:", isProcessing);
                 console.log("audioFinished:", audioFinished);
 
                 // Update the isProcessing and isListening flags from the server response
+                previousProcessingState = isProcessing
                 isProcessing = data.is_processing;
                 isListening = data.is_listening;
                 currentSessionId = data.current_session_id;
 
                 // Iterate over the chat data
                 data.chat_data.forEach(item => {
-                    if (item.user_input && item.bot_response) {
-                        chat.innerHTML += `<div class="user-message">You: ${item.user_input}</div>`;
-                        chat.innerHTML += `<div class="bot-message">LLaMA: ${item.bot_response}</div>`;
+                    if (item.speaker == "U") {
+                        chat.innerHTML += `<div class="user-message">You: ${item.response}</div>`;
+                    }
+                    else {
+                        chat.innerHTML += `<div class="bot-message">Bot: ${item.response}</div>`;
                     }
                 });
 
@@ -84,22 +93,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 // Play the bot's speech if audio is finished
-                if (audioFinished && !isProcessing) {
-                    playBotSpeech();
+                if (previousProcessingState && !isProcessing) {
+                    playSpeech("/get_speech_audio/");
                 }
 
                 // Toggle listening based on processing and listening states
-                if ((isProcessing && isListening && !audioFinished) || (!isProcessing && !isListening && audioFinished)) {
+                if (!isProcessing && !isListening && audioFinished) {
                     toggleListening();
                 }
-
 
             })
             .catch(error => console.error('Error:', error));
     }
 
-    function playBotSpeech() {
-        const audio = new Audio("/get_speech_audio/");
+    function playSpeech(endpoint) {
+        const audio = new Audio(endpoint);
         audioFinished = false;
         audio.play();
 
