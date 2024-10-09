@@ -25,18 +25,22 @@ h1 {
 
 .user-message {
     text-align: left;
-    color: #0056b3; /* Dark blue */
+    color: #0056b3;
+    /* Dark blue */
     margin: 10px 0;
-    background-color: #e7f3fe; /* Light blue background */
+    background-color: #e7f3fe;
+    /* Light blue background */
     border-radius: 5px;
     padding: 10px;
 }
 
 .bot-message {
     text-align: right;
-    color: #155724; /* Dark green */
+    color: #155724;
+    /* Dark green */
     margin: 10px 0;
-    background-color: #d4edda; /* Light green background */
+    background-color: #d4edda;
+    /* Light green background */
     border-radius: 5px;
     padding: 10px;
 }
@@ -47,7 +51,8 @@ h1 {
     padding: 10px;
     font-size: 16px;
     color: #fff;
-    background-color: #007bff; /* Bootstrap primary color */
+    background-color: #007bff;
+    /* Bootstrap primary color */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -56,7 +61,8 @@ h1 {
 }
 
 #toggleButton:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
+    /* Darker blue on hover */
 }
 
 #status {

@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice Conversation with LLaMA</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'chat/style.css' %}">
-    <script defer src="{% static 'chat/script.js' %}"></script>
-</head>
-<body>
-    <h1>Voice Conversation with LLaMA</h1>
-    
-    <div id="chat"></div>
-    
-    <button id="toggleButton">Start Call Session</button>
-    <p id="status">Not listening</p>
-</body>
+   <head>
+      {% load static %}
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Voice Conversation with LLaMA</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'chat/style.css' %}">
+      <script defer src="{% static 'chat/script.js' %}"></script>
+   </head>
+   <body>
+      <h1>Voice Conversation with LLaMA</h1>
+      <div id="chat"></div>
+      <button id="toggleButton">Start Call Session</button>
+      <p id="status">Not listening</p>
+   </body>
 </html>

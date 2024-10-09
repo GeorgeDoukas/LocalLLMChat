@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class CallSession(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     sentiment = models.CharField(max_length=255, blank=True, null=True)
@@ -11,16 +12,21 @@ class CallSession(models.Model):
     def get_dialogs(self):
         return self.exchanges.all()
 
+
 class Exchange(models.Model):  # Renamed Message to Dialog
     SPEAKER_CHOICES = [
         ("U", "User"),
         ("A", "Agent"),
     ]
-    session = models.ForeignKey(CallSession, on_delete=models.CASCADE, related_name='exchanges')
+    session = models.ForeignKey(
+        CallSession, on_delete=models.CASCADE, related_name="exchanges"
+    )
     speaker = models.CharField(max_length=1, choices=SPEAKER_CHOICES, default="U")
     input = models.TextField(blank=True, null=True)
     response = models.TextField(blank=True, null=True)
-    audio = models.FileField(upload_to='audio/user/', blank=True, null=True)  # Store user's audio clip
+    audio = models.FileField(
+        upload_to="audio/user/", blank=True, null=True
+    )  # Store user's audio clip
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
