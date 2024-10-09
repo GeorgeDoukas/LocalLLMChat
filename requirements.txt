@@ -8,3 +8,4 @@ pydub==0.25.1  # For audio conversion
 numpy==1.24.2  # For Whisper to process audio as np.ndarray
 torch==2.0.1  # Ensure you are using the CPU version of torch, adjust version if needed
 pyttsx3==2.98
+gTTS==2.5.3
