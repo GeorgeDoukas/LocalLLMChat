@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to toggle listening
     function toggleListening() {
-        fetch("/toggle_listening/", {
+        fetch("/run_main_flow/", {
             method: "POST",
             headers: {
                 "X-CSRFToken": getCSRFToken(),
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function updateChat() {
-        fetch("/get_chat/")
+        fetch("/refresh/")
             .then(response => response.json())
             .then(data => {
                 const chat = document.getElementById("chat");
