@@ -1,4 +1,5 @@
-django==5.1.1
+django>=3.2,<4.0
+djangorestframework==3.12.4
 openai-whisper==20230314  # Specific version for Whisper
 ollama==0.3.3
 ffmpeg-python==0.2.0
@@ -9,3 +10,5 @@ numpy==1.24.2  # For Whisper to process audio as np.ndarray
 torch==2.0.1  # Ensure you are using the CPU version of torch, adjust version if needed
 pyttsx3==2.98
 gTTS==2.5.3
+requests==2.32.3
+pygame==2.6.1
